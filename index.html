@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="An app that allows you to view song lyrics and music videos">
+    <title>MuseFeed</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="container">
+      <header><h1>MuseFeed</h1>
+      </header>
+      <section class="main">
+        <div class="info">
+          <h2>Get music videos and lyrics <br>with one search.</h2>
+        </div>
+      </section>
+      <section class="search">
+        <form id="js-form">
+            <label for="js-search-artist">Search for an artist <span class="required">*</span></label>
+            <input type="text" name="search-artist" id="js-search-artist" placeholder="Rick Astley" required>
+
+            <label for="js-search-track">Search for a song:</label>
+            <input type="text" name="search-track" id="js-search-track" placeholder="Never Gonna Give You Up">
+
+            <input type="image" src="images/play-icon.png" alt="search-button" class="search-btn">
+        </form>
+      </section>
+        <p id="js-error-message" class="error-message"></p>
+        
+        <section id="results" class="hidden">
+          <div class="result-container">
+          
+          <ul id="results-lyrics">
+          </ul>
+         
+          <ul id="results-videos">
+          </ul>
+          </div>
+        </section>
+        
+        <footer class="contact">
+          <h3>Contact info:
+          </h3>
+          <a class="emailLink" href="mailto:rogtang@gmail.com" target="_blank">Email</a>
+        </footer>
+      
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+</body>
+</html>

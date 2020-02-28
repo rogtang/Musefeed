@@ -1,0 +1,144 @@
+* {
+    box-sizing: border-box;
+    line-height: 1.5;
+  }
+  
+  body {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 50px;
+    margin-bottom: 70px;
+  }
+  
+  p {
+    margin: 0;
+  }
+  
+  .search {
+    padding-top: 25px;
+    padding-bottom: 20px;
+  }
+  
+  #js-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .required {
+    color: red;
+    font-weight: bold;
+  }
+  
+  #results {
+    padding-bottom: 50px;
+  }
+  
+  input {
+    margin: 15px;
+  }
+  
+  
+  button, input[type="text"] {
+    padding: 10px;
+  }
+  
+  button:hover {
+    cursor: pointer;
+  }
+  
+  .container {
+    margin: 0 auto;
+  }
+  
+  .error-message {
+      color: red;
+      font-weight: bold;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  #results-videos > li {
+    margin-bottom: 25px;
+  }
+  
+  
+  @media only screen and (min-width: 768px) {
+    body {
+      padding: 5px 5px 0 5px;
+      width: 90%;
+      margin: 0 auto;
+    }
+  
+    .iframe-container{
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; 
+    height: 0;
+  }
+  
+  .iframe-container iframe{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+    
+  } 
+  
+  @media only screen and (min-width: 1024px) {
+  
+  body {
+    padding: 10px 10px 0 10px;
+    width: 90%;
+    margin: 0 auto;
+    }
+  
+  .result-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between
+  }
+  
+  #results {
+    width: 100%
+  }
+  
+  #results-lyrics {
+    padding-left: 20px;
+    padding-right: 25px;
+    
+  }
+  
+  #results-videos {
+    padding-left: 20px;
+    padding-right: 25px; 
+  }
+  
+  .iframe-container{
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; 
+    height: 0;
+  }
+  
+  .iframe-container iframe{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  }
