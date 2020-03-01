@@ -3,7 +3,7 @@
 
 const searchURLLyrics = 'https://orion.apiseeds.com/api/music/lyric/'
 
-const apiKeyYT = 'AIzaSyAm4f-GI3jahDpJyqx9Nzot74T2JTxHAxU'; 
+const apiKeyYT = 'AIzaSyCr7kUuR61548bvZBXipsACkn1HNw9-Gmk'; 
 const searchURLYT = 'https://www.googleapis.com/youtube/v3/search';
 
 
@@ -20,7 +20,6 @@ function displayLyrics(responseJson) {
   const resultsLyrics = JSON.stringify(responseJson.result.track.text).replace(/\\n/g, "<br>").replace(/\\r/g, "");
   if (responseJson.result.probability < 80) {
     alert("Sorry, we couldn't find the lyrics for that song! Watch some videos instead.");
-    $('#results-lyrics').remove();
   }
   else if (responseJson.result.probability >= 80 || 'NaN') {
     $('#results-lyrics').append(
@@ -88,7 +87,7 @@ function displayResults(responseJson) {
     $('#results-videos').append(
       `<li><h3>${responseJson.items[i].snippet.title}</h3></li>
       <li><p>${responseJson.items[i].snippet.description}</p></li>
-      <li><div class='iframe-container'><iframe src='https://www.youtube.com/embed/${responseJson.items[i].id.videoId}' width='420' height='315' allowfullscreen frameborder='0' class='video'></iframe></div>
+      <li><div class='iframe-container'><iframe src='https://www.youtube.com/embed/${responseJson.items[i].id.videoId}' width='400' height='300' allowfullscreen frameborder='0' class='video'></iframe></div>
       </li>`
     )};
   //display the results section  
