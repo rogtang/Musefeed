@@ -1,11 +1,7 @@
 'use strict';
 
-
-const searchURLLyrics = 'https://orion.apiseeds.com/api/music/lyric/'
-
 const apiKeyYT = 'AIzaSyCr7kUuR61548bvZBXipsACkn1HNw9-Gmk'; 
 const searchURLYT = 'https://www.googleapis.com/youtube/v3/search';
-
 
 function formatQueryParams(params) {
   const queryItems = Object.keys(params)
@@ -14,7 +10,6 @@ function formatQueryParams(params) {
 }
 
 function displayLyrics(responseJson) {
-  // if there are previous results, remove them
   $('#results-lyrics').empty();
   console.log(responseJson);
   //converts text data into legible standard lyric format
@@ -83,9 +78,7 @@ function getYouTubeVideos(searchYT, maxResults=3) {
 
 function displayResults(responseJson) {
   console.log(responseJson);
-  // if there are previous results, remove them
   $('#results-videos').empty();
-  // iterate through the items array
   for (let i = 0; i < responseJson.items.length; i++){
     $('#results-videos').append(
       `<li><h3>${responseJson.items[i].snippet.title}</h3></li>
@@ -93,7 +86,6 @@ function displayResults(responseJson) {
       <li><div class='iframe-container'><iframe src='https://www.youtube.com/embed/${responseJson.items[i].id.videoId}' width='400' height='300' allowfullscreen frameborder='0' class='video'></iframe></div>
       </li>`
     )};
-  //display the results section  
   $('#results').removeClass('hidden');
 };
 
@@ -108,7 +100,7 @@ function watchForm() {
     const searchYT = searchArtist + " " + searchTrack;
     getLyrics(searchArtist, searchTrack);
     getYouTubeVideos(searchYT);
-    //remove any error messages from previous searh
+    //remove any error messages from previous search
     $('#js-error-message').text("");
     $('#js-search-artist').val("");
     $('#js-search-track').val("");
