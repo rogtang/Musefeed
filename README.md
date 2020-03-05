@@ -11,7 +11,7 @@ Upon accessing the MuseFeed landing page, the user is presented with the option 
 ### Screenshots
 ![Landing page](/screenshots/musefeed_landing.png)
 ![Beyonce search](/screenshots/musefeed_beyonce.png)
-![Adele search](/screenshots/musefeed_adele2.png)
+![Bob Dylan search](/screenshots/musefeed_dylan.png)
 
 ### Built With:
  - HTML
