@@ -17,8 +17,8 @@ function displayLyrics(responseJson) {
   if (responseJson.result.probability < 80) {
     alert("Sorry, we couldn't find the lyrics for that song! Watch some videos instead.");
   }
-  /*Allow probability 'NaN' for edge cases where search only has partial match (i.e. Beatles vs. the Beatles)*/
-  else if (responseJson.result.probability >= 80 || 'NaN') {
+  /*Allow probability 'NaN' over specified similarity for edge cases where search only has partial match (i.e. Beatles vs. the Beatles)*/
+  else if (responseJson.result.probability >= 80 || 'NaN' && responseJson.result.similarity >= 0.75) {
     $('#results-lyrics').append(
       `<li><h3>${responseJson.result.artist.name}</h3></li>
       <li><h3>${responseJson.result.track.name}</h3></li>
