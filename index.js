@@ -13,7 +13,7 @@ function displayLyrics(responseJson) {
   $('#results-lyrics').empty();
   console.log(responseJson);
   //converts text data into legible standard lyric format
-  const resultsLyrics = JSON.stringify(responseJson.result.track.text).replace(/\\n/g, "<br>").replace(/\\r/g, "");
+  const resultsLyrics = JSON.stringify(responseJson.result.track.text).replace(/\\n/g, "<br>").replace(/\\r/g, "").replace(/\\/g, "");
   if (responseJson.result.probability < 80) {
     alert("Sorry, we couldn't find the lyrics for that song! Watch some videos instead.");
   }
@@ -44,7 +44,10 @@ function getLyrics (searchArtist, searchTrack) {
     .then(responseJson => displayLyrics(responseJson))
     .catch(err => {
     //if song not found in lyrics database or user only searches for artist, return videos instead
-      $('#js-error-message').html("<h3>Sorry, we couldn't find the lyrics for that song but here are some related videos!</h3>");
+    if (searchTrack === ""){
+      $('#js-error-message').html(`<h3>Here are some of ${searchArtist}'s most popular videos.</h3>`);
+      } else {
+      $('#js-error-message').html("<h3>Sorry, we couldn't find the lyrics for that song but here are some related videos!</h3>")};
     });
 }
 
