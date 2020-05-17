@@ -170,11 +170,15 @@ body {
 
 #results-lyrics {
   padding: 0;
+  height: 45em;
+  overflow: auto
   }
 
 #results-videos {
   padding-left: 30px;
-  padding-right: 30px; 
+  padding-right: 30px;
+  height: 35em; 
+  overflow: auto
   }
 
 .iframe-container{

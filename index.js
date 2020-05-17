@@ -20,11 +20,10 @@ function displayLyrics(responseJson) {
   /*Allow probability 'NaN' over specified similarity for edge cases where search only has partial match (i.e. Beatles vs. the Beatles)*/
   else if (responseJson.result.probability >= 80 || 'NaN' && responseJson.result.similarity >= 0.75) {
     $('#results-lyrics').append(
-      `<li><h3>${responseJson.result.artist.name}</h3></li>
-      <li><h3>${responseJson.result.track.name}</h3></li>
-      <li><p>${resultsLyrics}</p>
-      </li>
-      <li><h4>${responseJson.result.copyright.notice}</h4></li>`
+      `<article><h3>${responseJson.result.artist.name}</h3>
+      <h3>${responseJson.result.track.name}</h3>
+      <p>${resultsLyrics}</p>
+      <h4>${responseJson.result.copyright.notice}</h4></article>`
     ); 
   } 
   $('#results').removeClass('hidden');
