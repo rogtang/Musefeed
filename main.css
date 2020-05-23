@@ -27,6 +27,11 @@ h1 {
   color: #fc4445
 }
 
+.head-link {
+  color: #fc4445;
+  text-decoration: none;
+}
+
 h2 {
   font-family: 'Rokkitt', serif;
   font-weight: 600;
