@@ -27,7 +27,7 @@ h1 {
   color: #fc4445
 }
 
-.head-link {
+h1 a {
   color: #fc4445;
   text-decoration: none;
 }
