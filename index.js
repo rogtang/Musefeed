@@ -1,6 +1,6 @@
 'use strict';
 
-const apiKeyYT = 'AIzaSyABugzNr3529gL5dwgsnjmnhZq7B-nXI0E'; 
+const apiKeyYT = 'AIzaSyDgNGIjXv3Vq7im9zn9R9aAE8OTrQbsec4'; 
 const searchURLYT = 'https://www.googleapis.com/youtube/v3/search';
 
 function formatQueryParams(params) {
