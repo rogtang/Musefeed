@@ -20,7 +20,7 @@ let editText = newText.slice(0, -1)
 let newLyrics = editText.replace('par', "by").substring(1);
   
   $('#results-lyrics').append(
-      `<h3><b>${searchTrack.toUpperCase()} - ${searchArtist.toUpperCase()}</b></h3>
+      `<h3><b>${searchArtist.toUpperCase()} - "${searchTrack.toUpperCase()}"</b></h3>
       <p>${newLyrics}</p>
     `
     ); 
