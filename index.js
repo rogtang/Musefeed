@@ -9,30 +9,28 @@ function formatQueryParams(params) {
   return queryItems.join('&');
 }
 
-function displayLyrics(responseJson) {
+function displayLyrics(responseJson, searchArtist, searchTrack) {
   $('#results-lyrics').empty();
   console.log(responseJson);
   //converts text data into legible standard lyric format
-  const resultsLyrics = JSON.stringify(responseJson.result.track.text).replace(/\\n/g, "<br>").replace(/\\r/g, "").replace(/\\/g, "");
-  if (responseJson.result.probability < 80) {
-    alert("Sorry, we couldn't find the lyrics for that song! Watch some videos instead.");
-  }
-  /*Allow probability 'NaN' over specified similarity for edge cases where search only has partial match (i.e. Beatles vs. the Beatles)*/
-  else if (responseJson.result.probability >= 80 || 'NaN' && responseJson.result.similarity >= 0.75) {
-    $('#results-lyrics').append(
-      `<article><h3>${responseJson.result.artist.name}</h3>
-      <h3>${responseJson.result.track.name}</h3>
-      <p>${resultsLyrics}</p>
-      <h4>${responseJson.result.copyright.notice}</h4></article>`
+  const resultsLyrics = JSON.stringify(responseJson.lyrics).replace(/\\n/g, "<br>").replace(/\\r/g, "").replace(/\\/g, "");
+
+let newText = resultsLyrics.substring(22);
+let editText = newText.slice(0, -1)
+let newLyrics = editText.replace('par', "by")
+  
+  $('#results-lyrics').append(
+      `
+      <p>${newLyrics}</p>
+    `
     ); 
-  } 
   $('#results').removeClass('hidden');
 };
 
 function getLyrics (searchArtist, searchTrack) {
-  const apiKeyLyrics = 'd4jz1w6ptBcfxtzp5Htm88nZjHbCQfX6IsZ5XSDEQeoFkem6dklHOXgfJXvTFSeD'
+  
   console.log(searchArtist, searchTrack);
-  fetch(`https://orion.apiseeds.com/api/music/lyric/${searchArtist}/${searchTrack}?apikey=${apiKeyLyrics}`) 
+  fetch(`https://api.lyrics.ovh/v1/${searchArtist}/${searchTrack}`) 
   .then(response => {
       if (response.ok) {
         
@@ -40,7 +38,7 @@ function getLyrics (searchArtist, searchTrack) {
       }
       throw new Error(response.error);
     })
-    .then(responseJson => displayLyrics(responseJson))
+    .then(responseJson => displayLyrics(responseJson, searchArtist, searchTrack))
     .catch(err => {
     //if song not found in lyrics database or user only searches for artist, return videos instead
     if (searchTrack === ""){
@@ -49,7 +47,6 @@ function getLyrics (searchArtist, searchTrack) {
       $('#js-error-message').html("<h3>Sorry, we couldn't find the lyrics for that song but here are some related videos!</h3>")};
     });
 }
-
 
 function getYouTubeVideos(searchYT, maxResults=3) {
   const params = {
