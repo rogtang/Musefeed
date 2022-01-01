@@ -15,12 +15,12 @@ function displayLyrics(responseJson, searchArtist, searchTrack) {
   //converts text data into legible standard lyric format
   const resultsLyrics = JSON.stringify(responseJson.lyrics).replace(/\\n/g, "<br>").replace(/\\r/g, "").replace(/\\/g, "");
 
-let newText = resultsLyrics.substring(22);
+let newText = resultsLyrics.replace("Paroles de la chanson", "");
 let editText = newText.slice(0, -1)
-let newLyrics = editText.replace('par', "by")
+let newLyrics = editText.replace('par', "by").substring(1);
   
   $('#results-lyrics').append(
-      `
+      `<h3><b>${searchTrack.toUpperCase()} - ${searchArtist.toUpperCase()}</b></h3>
       <p>${newLyrics}</p>
     `
     ); 
