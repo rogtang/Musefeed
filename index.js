@@ -28,9 +28,9 @@ let newLyrics = editText.replace('par', "by").substring(1);
 };
 
 function getLyrics (searchArtist, searchTrack) {
-  
+  let parseArtist = searchArtist.replace(/&/g, "and")
   console.log(searchArtist, searchTrack);
-  fetch(`https://api.lyrics.ovh/v1/${searchArtist}/${searchTrack}`) 
+  fetch(`https://api.lyrics.ovh/v1/${parseArtist}/${searchTrack}`) 
   .then(response => {
       if (response.ok) {
         
